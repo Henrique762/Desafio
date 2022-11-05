@@ -15,11 +15,11 @@ services:
       - proxy
 
   site1:
-    image: henrique77/site1:1.0
+    image: henrique77/site1:2.0
     networks:
       - proxy
 
   site2:
-    image: henrique77/site2:1.0
+    image: henrique77/site2:2.0
     networks:
       - proxy

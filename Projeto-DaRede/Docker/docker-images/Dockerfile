@@ -9,8 +9,10 @@ ENV APACHE_RUN_GROUP="www-data"
 ENV APACHE_LOG_DIR="/var/log/apache2"
 
 ADD index.html /var/www/html/
+ADD minhaprimeirapagina.html /var/www/html/
+ADD cor.css /var/www/html/cor.css
 
-LABEL description ="Site01"
+LABEL description ="Site02"
 
 WORKDIR /var/www/html
 
