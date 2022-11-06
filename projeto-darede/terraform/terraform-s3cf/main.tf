@@ -52,13 +52,14 @@ resource "aws_s3_object" "arq-error" {
   etag = filemd5("error.html")
 }
 
+
 ##### CLOUD FRONT #####
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name              = aws_s3_bucket.bucket-desafio.bucket_regional_domain_name
-    origin_id                = local.s3_origin_id
-    origin_path = "/index.html"
+    domain_name              = aws_s3_bucket.bucket-desafio.bucket_domain_name
+    origin_id                = aws_s3_bucket.bucket-desafio.bucket
+    #origin_path = "/index.html"
   }
 
   enabled             = true
@@ -77,7 +78,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = local.s3_origin_id
+    target_origin_id = aws_s3_bucket.bucket-desafio.bucket
 
     forwarded_values {
       query_string = false
@@ -97,8 +98,8 @@ price_class = "PriceClass_100"
 
 restrictions {
   geo_restriction {
-    restriction_type = "whitelist"
-    locations = [ "US", "CA" ]
+    restriction_type = "none"
+    #locations = [ "US", "CA" ]
   }
 }
   
@@ -116,22 +117,22 @@ data "aws_acm_certificate" "tls_data" {
 }
 
 
-#data "aws_route53_zone" "dominio" {
-  #name         = "henrq.tk"
-  #private_zone = false
-#}
+data "aws_route53_zone" "zone_route53" {
+  name         = "henrq.tk"
+  private_zone = false
+}
 
-#resource "aws_route53_record" "record_cf" {
-  #zone_id = aws_route53_zone.dominio.zone_id
-  #name    = "s3site.henrq.tk"
-  #type    = "A"
+resource "aws_route53_record" "record_cf" {
+  zone_id = data.aws_route53_zone.zone_route53.zone_id
+  name    = "s3site.henrq.tk"
+  type    = "A"
 
-  #alias {
-    #name                   = aws_cloudfront_distribution.s3_distribution.domain_name
-    #zone_id                = aws_elb.main.zone_id
-    #evaluate_target_health = true
-  #}
-#}
+  alias {
+    name                   = aws_cloudfront_distribution.s3_distribution.domain_name
+    zone_id                = aws_cloudfront_distribution.s3_distribution.hosted_zone_id
+    evaluate_target_health = true
+  }
+}
   
 
 

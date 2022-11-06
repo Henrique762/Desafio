@@ -1,9 +1,9 @@
 version: "3.9"
 
 networks:
-  proxy:
-    driver: overlay
-
+  docker_compose_proxy:
+      driver: overlay
+      attachable: true
 services:
   nginx:
     image: nginx
@@ -12,14 +12,14 @@ services:
     ports:
       - 80:80
     networks:
-      - proxy
+      - docker_compose_proxy
 
   site1:
     image: henrique77/site1:2.0
     networks:
-      - proxy
+      - docker_compose_proxy
 
   site2:
     image: henrique77/site2:2.0
     networks:
-      - proxy
+      - docker_compose_proxy
