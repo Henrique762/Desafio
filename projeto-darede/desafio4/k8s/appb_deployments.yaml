@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-app-b 
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: app-b-pod
+      app: app-b
+
+##### Config de Template do Pod ####
+  template:
+    metadata:
+      name: app-b-pod
+      labels:
+        name: app-b-pod
+        app: app-b
+        
+#### Config de Specs do Container #####
+    spec:
+      containers:
+        - name: app-b
+          image: henrique77/apps:appb
+          ports:
+          - containerPort: 80

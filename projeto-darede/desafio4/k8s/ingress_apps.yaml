@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-apps-ab
+  namespace: default
+spec:
+  rules:
+  - host: apps.henrq.tk
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: app-a-service
+            port:
+              number: 80
+
+    #  - path: /appb 
+    #    pathType: Prefix
+    #    backend:
+    #      service:
+    #        name: app-b-service
+    #        port:
+    #          number: 80

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-app-d
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: app-d-pod
+      app: app-d
+
+##### Config de Template do Pod ####
+  template:
+    metadata:
+      name: app-d-pod
+      labels:
+        name: app-d-pod
+        app: app-d
+        
+#### Config de Specs do Container #####
+    spec:
+      containers:
+        - name: app-d
+          image: henrique77/apps:appd
+          ports:
+          - containerPort: 80

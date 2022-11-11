@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-app-c
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: app-c-pod
+      app: app-c
+
+##### Config de Template do Pod ####
+  template:
+    metadata:
+      name: app-c-pod
+      labels:
+        name: app-c-pod
+        app: app-c
+        
+#### Config de Specs do Container #####
+    spec:
+      containers:
+        - name: app-c
+          image: henrique77/apps:appc
+          ports:
+          - containerPort: 80
+
