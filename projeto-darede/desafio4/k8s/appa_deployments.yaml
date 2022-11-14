@@ -1,26 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deploy-app-a
+  name: app-a
+  namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: app-a-pod
       app: app-a
-
 ##### Config de Template do Pod ####
   template:
     metadata:
-      name: app-a-pod
       labels:
-        name: app-a-pod
         app: app-a
-        
 #### Config de Specs do Container #####
     spec:
       containers:
         - name: app-a
           image: henrique77/apps:appa
           ports:
-          - containerPort: 443
+          - containerPort: 80
+            name: nginx
+            protocol: TCP

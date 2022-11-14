@@ -7,15 +7,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      name: app-d-pod
       app: app-d
 
 ##### Config de Template do Pod ####
   template:
     metadata:
-      name: app-d-pod
       labels:
-        name: app-d-pod
         app: app-d
         
 #### Config de Specs do Container #####
@@ -25,3 +22,5 @@ spec:
           image: henrique77/apps:appd
           ports:
           - containerPort: 80
+            name: nginx
+            protocol: TCP
