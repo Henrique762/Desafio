@@ -1,25 +1,28 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: app-a
+  name: app-cd
 spec:
   ingressClassName: ingress-nginx-public
   rules:
-  - host: h.daredelabs.com.br
+  - host: appc.henrq.tk
     http:
       paths:
-      - path: /appa
+      - path: "/"
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-a-service
+            name: app-c-service
             port:
               number: 80
 
-      - path: /appb 
+  - host: appd.henrq.tk
+    http:
+      paths:  
+      - path: "/"
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-b-service
+            name: app-d-service
             port:
               number: 80
