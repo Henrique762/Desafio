@@ -6,45 +6,27 @@
 .cabeçalho {
     display: flex;
     justify-content: center;
-    background-color: black;
-    color: brown;
+    background-color: whitesmoke;
+    color: black;
     height: 15vh;
     font-family: cursive;
 }
-
 .class-um {
     display: flex;
-    background-color: black;
+    background-color: whitesmoke;
     justify-content: center;
-    color: brown;
+    color: black;
     height: 55vh;
-    font-family: cursive;
+    font-family: fantasy;
     cursor: pointer;
 
 }
-
 .rodape {
     display: flex;
     justify-content: center;
-    background-color: black;
+    background-color: whitesmoke;
     color: brown;
     font-family: cursive;
     height: 30vh;
 
-}
-
-.class-um:hover {
-    background: whitesmoke;
-    transition: .3s;
-}
-
-.letras {
-    padding: 12vh;
-
-}
-
-
-.class-redirect {
-    padding: 25vh;
-    text-decoration: none;
 }
