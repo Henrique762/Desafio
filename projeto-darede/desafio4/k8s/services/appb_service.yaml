@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-a-service
+  name: app-b
   namespace: default
 spec:
   ports:

@@ -1,14 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deploy-app-c
+  name: app-c
 
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: app-c
-
 ##### Config de Template do Pod ####
   template:
     metadata:
