@@ -6,29 +6,29 @@ metadata:
   region: us-east-1
 
 vpc:
-  id: ""
-  securityGroup: ""
-  sharedNodeSecurityGroup: ""
-  manageSharedNodeSecurityGroupRules: true 
+  id: "vpc-0757207cc04da99b0"
+  securityGroup: "sg-02d27ddb102f7336c"
   subnets:
     private:
       us-east-1a:
-        id: ""
+        id: "subnet-047fa000fdcf9e125"
       us-east-1b:
-        id: ""
-
-nodeGroups:
+        id: "subnet-0e8b740892bb68bb9"
+        
+managedNodeGroups:
   - name: desafio-ng
     instanceType: t2.micro
     amiFamily: AmazonLinux2
+    securityGroups:
+      attachIDs: ["sg-017c5f85789d68545"]
     privateNetworking: true
-    volumeSize: 20 
-    desiredCapacity: 4
+    volumeSize: 20
+    desiredCapacity: 3
     minSize: 2
     maxSize: 6
     iam:
       withAddonPolicies:
-        autoscaler: true
+        autoScaler: true
         externalDNS: true
         certManager: true
         cloudWatch: true
