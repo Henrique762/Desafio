@@ -13,24 +13,26 @@ vpc:
       us-east-1a:
         id: "subnet-047fa000fdcf9e125"
       us-east-1b:
-        id: "subnet-0e8b740892bb68bb9"
-        
+        id: "subnet-0e8b740892bb68bb9"  
 managedNodeGroups:
   - name: desafio-ng
-    instanceType: t2.micro
+    instanceType: t3.medium
     amiFamily: AmazonLinux2
     securityGroups:
-      attachIDs: ["sg-017c5f85789d68545"]
+      attachIDs: ["sg-02d27ddb102f7336c"]
     privateNetworking: true
     volumeSize: 20
-    desiredCapacity: 3
-    minSize: 2
-    maxSize: 6
+    desiredCapacity: 2
+    minSize: 1
+    maxSize: 3
     iam:
       withAddonPolicies:
         autoScaler: true
         externalDNS: true
         certManager: true
         cloudWatch: true
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
 
     

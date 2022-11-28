@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-b 
-
 spec:
   replicas: 1
   selector:
@@ -12,13 +11,12 @@ spec:
   template:
     metadata:
       labels:
-        app: app-b
-        
+        app: app-b  
 #### Config de Specs do Container #####
     spec:
       containers:
         - name: app-b
-          image: henrique77/apps:appb
+          image: henrique77/appb
           ports:
           - containerPort: 80
             name: nginx

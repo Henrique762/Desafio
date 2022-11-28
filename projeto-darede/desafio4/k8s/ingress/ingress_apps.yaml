@@ -15,7 +15,6 @@ spec:
             name: app-a-service
             port:
               number: 80
-
       - path: "/appb" 
         pathType: ImplementationSpecific
         backend:
