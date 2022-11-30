@@ -16,24 +16,24 @@ pipeline {
             }
         }
 
-        //stage ('Login Docker') {
-           // steps   {
-                //script {
-                    //sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                //}
-           // }
-        //}
+        stage ('Login Docker') {
+            steps   {
+                script {
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                }
+            }
+        }
 
-        //stage ('Push Image A') {
-            //steps {
-                //script {
-                           // dockerappa.push('latest')
-                           // dockerappb.push('latest')
-                           // dockerappc.push('latest')
-                           // dockerappd.push('latest')
-               // }
-            //} 
-        //}    
+        stage ('Push Image A') {
+            steps {
+                script {
+                    dockerappa.push('latest')
+                    dockerappb.push('latest')
+                    dockerappc.push('latest')
+                    dockerappd.push('latest')
+                }
+            } 
+        }    
         //stage ('Deploy-k8s') {
             //steps {
                 //script  {
