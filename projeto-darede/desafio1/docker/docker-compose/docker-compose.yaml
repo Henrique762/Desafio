@@ -15,11 +15,11 @@ services:
       - docker_compose_proxy
 
   site1:
-    image: henrique77/site1:2.0
+    image: henrique77/site1
     networks:
       - docker_compose_proxy
 
   site2:
-    image: henrique77/site2:2.0
+    image: henrique77/site2
     networks:
       - docker_compose_proxy
