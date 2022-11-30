@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-c
+  namespace: dev
 spec:
   replicas: 1
   selector:
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
         - name: app-c
-          image: henrique77/appc
+          image: henrique77/dev-appc
           ports:
           - containerPort: 80
             name: nginx

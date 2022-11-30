@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-a
-  namespace: default
+  namespace: dev
 spec:
   replicas: 1
   selector:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: app-a
-          image: henrique77/appa
+          image: henrique77/dev-appa
           ports:
           - containerPort: 80
             name: nginx

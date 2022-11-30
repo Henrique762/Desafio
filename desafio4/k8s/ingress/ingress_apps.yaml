@@ -2,23 +2,24 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: app-ab
+  namespace: dev
 spec:
   ingressClassName: ingress-nginx-public
   rules:
-  - host: apps.henrq.tk
+  - host: dev.apps.henrq.tk
     http:
       paths:
       - path: "/appa"
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-a-service
+            name: app-a
             port:
               number: 80
       - path: "/appb" 
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-b-service
+            name: app-b
             port:
               number: 80
