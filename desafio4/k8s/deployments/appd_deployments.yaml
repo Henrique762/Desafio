@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-d
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-d
+##### Config de Template do Pod ####
+  template:
+    metadata:
+      labels:
+        app: app-d
+#### Config de Specs do Container #####
+    spec:
+      containers:
+        - name: app-d
+          image: henrique77/appd
+          ports:
+          - containerPort: 80
+            name: nginx
+            protocol: TCP
