@@ -8,10 +8,10 @@ pipeline {
         stage ('BuildImage-A') {
             steps {
                 script {
-                    dockerappa = docker.build("henrique77/appa", '-f ./appa/Dockerfile ./appa')
-                    dockerappb = docker.build("henrique77/appb", '-f ./appb/Dockerfile ./appb')
-                    dockerappc = docker.build("henrique77/appc", '-f ./appc/Dockerfile ./appc')
-                    dockerappd = docker.build("henrique77/appd", '-f ./appd/Dockerfile ./appd')
+                    dockerappa = docker.build("henrique77/appa", '-f ./desafio4/contapp/appa/Dockerfile ./desafio4/contapp/appa')
+                    //dockerappb = docker.build("henrique77/appb", '-f ./appb/Dockerfile ./appb')
+                    //dockerappc = docker.build("henrique77/appc", '-f ./appc/Dockerfile ./appc')
+                    //dockerappd = docker.build("henrique77/appd", '-f ./appd/Dockerfile ./appd')
                 }  
             }
         }
