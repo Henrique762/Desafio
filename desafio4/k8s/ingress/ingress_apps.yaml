@@ -13,13 +13,13 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-a
+            name: app-a-dev
             port:
               number: 80
       - path: "/appb" 
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-b
+            name: app-b-dev
             port:
               number: 80

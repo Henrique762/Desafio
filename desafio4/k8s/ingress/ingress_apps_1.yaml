@@ -13,7 +13,7 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-c
+            name: app-c-dev
             port:
               number: 80
   - host: dev.appd.henrq.tk
@@ -23,6 +23,6 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: app-d
+            name: app-d-dev
             port:
               number: 80

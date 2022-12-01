@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-c
+  name: app-c-dev
   namespace: dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: app-c
+      app: app-c-dev
 ##### Config de Template do Pod ####
   template:
     metadata:
       labels:
-        app: app-c     
+        app: app-c-dev   
 #### Config de Specs do Container #####
     spec:
       containers:
