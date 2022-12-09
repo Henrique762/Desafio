@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.cabeçalho {
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+    color: black;
+    height: 15vh;
+    font-family: cursive;
+}
+.class-um {
+    display: flex;
+    background-color: whitesmoke;
+    justify-content: center;
+    color: black;
+    height: 55vh;
+    font-family: fantasy;
+    cursor: pointer;
+
+}
+.rodape {
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+    color: brown;
+    font-family: cursive;
+    height: 30vh;
+
+}
