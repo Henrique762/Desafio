@@ -34,24 +34,24 @@ pipeline {
                 }
             }
         }
-        //stage ('Deploy-k8s') {
-            //steps {
-                //script  {
-                    //sh '''
+        stage ('Deploy-k8s') {
+            steps {
+                script  {
+                    sh '''
 
-                        //export AWS_PROFILE=default
-                        //aws eks update-kubeconfig --name cluster-desafio
-                        //kubectl delete deployments app-a app-b
-                        //kubectl apply -f ./k8s/deployments/appa_deployments.yaml
-                       // kubectl apply -f ./k8s/deployments/appb_deployments.yaml
-                       // kubectl apply -f ./k8s/deployments/appc_deployments.yaml
-                        //kubectl apply -f ./k8s/deployments/appd_deployments.yaml
+                        export AWS_PROFILE=default
+                        aws eks update-kubeconfig --name cluster-desafio
+                        kubectl delete deployments app-a-dev app-b-dev app-c-dev app-d-dev 
+                        kubectl apply -f ./k8s/deployments/appa_deployments.yaml
+                        kubectl apply -f ./k8s/deployments/appb_deployments.yaml
+                        kubectl apply -f ./k8s/deployments/appc_deployments.yaml
+                        kubectl apply -f ./k8s/deployments/appd_deployments.yaml
 
 
 
-                       // '''
-                //}
-           //}
-       // }
+                        '''
+                }
+           }
+        }
     }
 }
