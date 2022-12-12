@@ -177,7 +177,7 @@ resource "aws_route_table_association" "eks-associate-db-2" {
 
 #### SECURITY GROUPS ####
 resource "aws_security_group" "allow_http" {
-  name        = "eks-allow_http"
+  name        = "eks-sg"
   description = "Allow HTTP"
   vpc_id      = aws_vpc.eks-vpc.id
 
@@ -185,6 +185,13 @@ resource "aws_security_group" "allow_http" {
     description      = "HTTP from VPC"
     from_port        = 80
     to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+  ingress {
+    description      = "HTTP from VPC"
+    from_port        = 443
+    to_port          = 443
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
@@ -197,7 +204,7 @@ resource "aws_security_group" "allow_http" {
   }
 
   tags = {
-    Name = "eks-allow_http"
+    Name = "eks-sg"
   }
 }
 

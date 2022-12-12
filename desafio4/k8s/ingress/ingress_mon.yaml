@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: ingress-nginx-public
   rules:
-  - host: monh.daredelabs.com.br
+  - host: monh.henrq.tk
     http:
       paths:  
       - path: "/"
