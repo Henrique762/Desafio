@@ -7,26 +7,27 @@ exToPort = 'ToPort'
 region = 'us-east-2'
 
 
-sns_client = boto3.client('sns', region_name='us-east-2')
+sns_client = boto3.client('sns', region_name='us-east-1')
 
 def publish_message():
     response = sns_client.publish(
-        TopicArn='arn:aws:sns:us-east-2:613036180535:h-topic',
-        Message="SG com ID (sg-059050c0d9c51566a) ESTA EXPOSTO PARA O MUNDO",
+        TopicArn='arn:aws:sns:us-east-1:260646838877:Sgs_Emails',
+        Message="SG com ID (sg-050c495bdc243c7b6) ESTA EXPOSTO PARA O MUNDO",
         Subject="SG DO CLUSTER",
         )
 
 def publish_message_sg():
     response = sns_client.publish(
-        TopicArn='arn:aws:sns:us-east-2:613036180535:h-topic',
-        Message="SG COM ID (sg-0c800cd973474591c) ESTA EXPOSTO PARA O MUNDO",
-        Subject="SG DO CLUSTER",
+        TopicArn='arn:aws:sns:us-east-1:260646838877:Sgs_Emails',
+        Message="SG COM ID (sg-069fcfaf72c6b00e7) ESTA EXPOSTO PARA O MUNDO",
+        Subject="SG DO NODEGROUP",
         )
 
 
-client = boto3.client('ec2', region_name='us-east-2')
+client = boto3.client('ec2', region_name='us-east-1')
+
 def lambda_handler(event, context):
-    response = client.describe_security_groups(GroupIds=['sg-059050c0d9c51566a'])
+    response = client.describe_security_groups(GroupIds=['sg-050c495bdc243c7b6'])
 
     for sg in response["SecurityGroups"]:
         # grab these variables so that they're sent to the revoke security group access
@@ -44,7 +45,7 @@ def lambda_handler(event, context):
                     if cidr['CidrIp'] == open_rules:
                         publish_message()
 
-    sg2 = client.describe_security_groups(GroupIds=['sg-0c800cd973474591c'])
+    sg2 = client.describe_security_groups(GroupIds=['sg-069fcfaf72c6b00e7'])
 
     for sg in sg2["SecurityGroups"]:
         # grab these variables so that they're sent to the revoke security group access

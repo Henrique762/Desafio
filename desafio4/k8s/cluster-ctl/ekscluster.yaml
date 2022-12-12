@@ -6,6 +6,8 @@ metadata:
 vpc:
   id: "vpc-0b657e9c8ee8b238c"
   securityGroup: "sg-069fcfaf72c6b00e7"
+  sharedNodeSecurityGroup: "sg-069fcfaf72c6b00e7"
+  manageSharedNodeSecurityGroupRules: true
   subnets:
     private:
       us-east-1a:
