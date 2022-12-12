@@ -42,7 +42,7 @@ pipeline {
                         export AWS_PROFILE=default
                         aws eks update-kubeconfig --name cluster-desafio
                         kubectl delete deployments app-a-dev app-b-dev app-c-dev app-d-dev -n dev
-                        kubectl apply -f ./desafio4/k8s/deployments/appa_deployments.yaml
+                        kubectl apply -f ./desafio4/k8s/deployments/.
 
                         '''
                 }
