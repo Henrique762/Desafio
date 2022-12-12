@@ -43,6 +43,8 @@ pipeline {
                         aws eks update-kubeconfig --name cluster-desafio
                         kubectl delete deployments app-a-dev app-b-dev app-c-dev app-d-dev -n dev
                         kubectl apply -f ./desafio4/k8s/deployments/.
+                        kubectl apply -f ./desafio4/k8s/ingress/.
+                        kubectl apply -f ./desafio4/k8s/services/.
 
                         '''
                 }

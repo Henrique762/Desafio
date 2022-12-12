@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: ingress-nginx-public
   rules:
-  - host: dev.apps.henrq.tk
+  - host: devapps.henrq.tk
     http:
       paths:
       - path: "/appa"
