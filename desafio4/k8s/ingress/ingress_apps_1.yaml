@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: ingress-nginx-public
   rules:
-  - host: dev.appc.henrq.tk
+  - host: devappc.henrq.tk
     http:
       paths:
       - path: "/"
@@ -16,7 +16,7 @@ spec:
             name: app-c-dev
             port:
               number: 80
-  - host: dev.appd.henrq.tk
+  - host: devappd.henrq.tk
     http:
       paths:  
       - path: "/"
