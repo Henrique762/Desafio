@@ -5,7 +5,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
     stages{
-        stage ('BuildImage-A') {
+        stage ('BuildImages') {
             steps {
                 script {
                     dockerappa = docker.build("henrique77/dev-appa", '-f ./desafio4/contapp/appa/Dockerfile ./desafio4/contapp/appa')
